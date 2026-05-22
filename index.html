@@ -1095,6 +1095,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.getElementById('form-content').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
 
+    // Disparar evento Lead no GTM → Meta Pixel
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'lead_convertido',
+      lead_nome: nome,
+      lead_whatsapp: tel
+    });
+
     // Salvar lead no Google Sheets
     var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyn7IiFEmfHLCXzdb22YZb2lzjUHD1K-v4fSwmvZ32NevXcIbol5i3v_kRW2htOYIxe9A/exec';
     var params = '?nome=' + encodeURIComponent(nome) + '&whatsapp=' + encodeURIComponent(tel);
