@@ -214,27 +214,38 @@
   
 
   /* ─── TRUST BAR ─── */
-  .trust-bar {
+    .trust-bar {
     background: var(--cinza-bg);
     border-bottom: 1px solid var(--cinza-borda);
     padding: 18px 24px;
   }
   .trust-bar-inner {
-    max-width: 1100px;
+    max-width: 700px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0;
     flex-wrap: wrap;
-    gap: 24px 36px;
   }
   .trust-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 600;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
     color: var(--preto-soft);
+    padding: 8px 32px;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+  }
+  .trust-item svg { width: 22px; height: 22px; flex-shrink: 0; }
+  .trust-item-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--cinza-borda);
+    flex-shrink: 0;
   }
   .trust-item svg { width: 20px; height: 20px; flex-shrink: 0; }
 
@@ -682,14 +693,39 @@
     .btn-hero-cta { font-size: 15px; padding: 15px 20px; }
 
     /* ── TRUST BAR ── */
-    .trust-bar { padding: 14px 16px; overflow-x: auto; }
-    .trust-bar-inner {
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      gap: 20px;
-      padding-bottom: 4px;
-    }
-    .trust-item { font-size: 12px; white-space: nowrap; }
+      .trust-bar {
+    background: var(--cinza-bg);
+    border-bottom: 1px solid var(--cinza-borda);
+    padding: 18px 24px;
+  }
+  .trust-bar-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--preto-soft);
+    padding: 8px 32px;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+  }
+  .trust-item svg { width: 22px; height: 22px; flex-shrink: 0; }
+  .trust-item-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--cinza-borda);
+    flex-shrink: 0;
+  }
 
     /* ── FORMULÁRIO ── */
     .form-section { padding: 48px 16px; }
@@ -789,24 +825,13 @@
 <div class="trust-bar">
   <div class="trust-bar-inner">
     <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="#004785"><path d="M12 2L3 7l9 5 9-5-9-5zm-9 7.5V17l9 5 9-5V9.5L12 14.5 3 9.5z"/></svg>
-      Lentes multifocais
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="#FFC20E"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
-      Proteção UV
-    </div>
-    <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="#004785"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
-      Parcelamento
+      Parcelamento em 10x Sem Juros
     </div>
+    <div class="trust-item-divider"></div>
     <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="#FFC20E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-      Resposta rápida
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="#004785"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-      Orientação especializada
+      <svg viewBox="0 0 24 24" fill="#FFC20E"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+      Óculos com 2 Anos de Garantia
     </div>
   </div>
 </div>
@@ -1059,18 +1084,13 @@
     document.getElementById('form-content').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
 
-    // Salvar lead no Google Sheets via GET (funciona em qualquer ambiente)
+    // Salvar lead no Google Sheets
     var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyn7IiFEmfHLCXzdb22YZb2lzjUHD1K-v4fSwmvZ32NevXcIbol5i3v_kRW2htOYIxe9A/exec';
     var params = '?nome=' + encodeURIComponent(nome) + '&whatsapp=' + encodeURIComponent(tel);
-    try {
-      // Tenta fetch primeiro
-      fetch(SHEETS_URL + params, { method: 'GET', mode: 'no-cors' }).catch(function(){});
-    } catch(e) {}
-    // Fallback via Image beacon — funciona sempre
     new Image().src = SHEETS_URL + params;
 
     // Redirecionar para WhatsApp após salvar
-    var msg = encodeURIComponent('Olá! Vim do site e gostaria de um orçamento de óculos de grau. Meu nome é ' + nome + ' e meu WhatsApp é ' + tel + '.');
+    var msg = encodeURIComponent('Olá! Vim do site e gostaria de um orçamento de óculos de grau.');
     setTimeout(function() {
       window.open('https://wa.me/' + WPP_NUM + '?text=' + msg, '_blank');
     }, 800);
